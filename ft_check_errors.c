@@ -125,6 +125,7 @@ int *ft_create_tab_from_str(int ac, char **av)
         j++;
     }   
     tab[i] = '\0';
+   // printf("%d %d %d\n", tab[0], tab[1],tab[2]);
     return (tab);
     // il est free ds ft_check_errors
 }
@@ -147,19 +148,26 @@ int     ft_check_double(int ac, char **av)
     int i;
     int *stock_nb;
 
+
     if (ac == 2)
         stock_nb = ft_create_tab_from_str(ac, av);
     else
         stock_nb = ft_create_tab_from_av(ac, av);
     i = 0;
     j = 1;
+    printf("%d %d %d\n", stock_nb[0], stock_nb[1],stock_nb[2]);
     while (stock_nb[i])
     {
         j = i + 1;
-        while (stock_nb[j])
-        {
+        while (stock_nb[j]) 
+       /* while (av[1][j]) */
+        {   
+            //printf("%d %d\n", stock_nb[i] ,stock_nb[j]);
             if (stock_nb[i] == stock_nb[j])
+            {
+                printf("not good");
                 return (0);
+            }
             j++;
         }
         i++;
