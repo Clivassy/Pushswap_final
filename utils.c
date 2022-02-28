@@ -1,32 +1,5 @@
 #include "push_swap.h"
 
-/* void	free_stack(t_list **stack)
-{
-	t_list	*head;
-	t_list	*tmp;
-
-	head = *stack;
-	while (head)
-	{
-		tmp = head;
-		head = head->next;
-		free(tmp);
-	}
-	free(stack);
-}
-
-void	ft_free(char **str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	while (i >= 0)
-		free(str[i--]);
-} */
-
-
 int    ft_case_1(int *tab)
 {
     if (tab[0] > tab[1] && tab[0] < tab[2] 

@@ -22,14 +22,7 @@ void    ft_sort_small_stack(t_list **a,t_list **b, int ac, char **av)
    
     if (ac > 2)
         tab = ft_create_tab_from_av(ac, av);
-  /*   if (ac == 2)
-    {
-        input = ft_split(av[1], ' ');
-        tab = ft_create_tab_from_str(ac, ft_split(av[1], ' '));
-    } */
-   // printf("%d %d %d %d\n", tab[0],tab[1], tab[2],tab[3]);
     pos = ft_min_position(a, tab);
-   // printf("%d %d %d %d\n", tab[0],tab[1], tab[2],tab[3]);
     if (ft_lstsize(*a) <= 1 || ft_is_sorted(a))
         return;
     else if (ft_lstsize(*a) == 2)
@@ -94,7 +87,6 @@ int     ft_min_position(t_list **stack, int *tab)
 
     i = 1;
     position = 0;
-    //printf("%d %d %d %d\n", tab[0],tab[1], tab[2],tab[3]);
     while (i < ft_lstsize(*stack))
     {   
         if (tab[i] < tab[position])
