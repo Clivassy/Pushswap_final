@@ -4,7 +4,6 @@ void    ft_sort_two_nb(t_list **stack, int *tab)
 {
     if (tab[0] > tab[1])
         sa(stack);
-    return;
 }
 
 void    ft_sort_three(t_list **a)
