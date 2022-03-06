@@ -38,6 +38,7 @@ int main(int argc, char **argv)
             ft_get_index(a, argc, argv);
             radix_sort(&a, &b);
         }
+        free(a);
     }
     return (0);
 }
