@@ -98,6 +98,5 @@ void	radix_sort(t_list **a, t_list **b)
 			pa(a, b);
 		i++;
 	}
-	print_list(*a);
 	ft_free_stack(*a);
 }
