@@ -33,7 +33,7 @@ int    ft_get_index(t_list *a, int ac, char **av)
     int index;
 	int *tab;
 
-	tab = malloc(sizeof(int) * ft_len_malloc_tab(ac, av)); 
+	tab = malloc(sizeof(int)); 
     if (!tab)
         return(0);
     index = 0;
@@ -102,5 +102,6 @@ void	radix_sort(t_list **a, t_list **b)
 			pa(a, b);
 		i++;
 	}
+	print_list(*a);
 	ft_free_stack(*a);
 }
