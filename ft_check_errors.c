@@ -52,6 +52,17 @@ int	ft_check_double(int num, char **input, int i)
 	return (1);
 }
 
+void	ft_free(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	while (i >= 0)
+		free(str[i--]);
+}
+
 /* Combine all checking errors */
 int	ft_check_errors(int argc, char **argv)
 {
@@ -78,6 +89,6 @@ int	ft_check_errors(int argc, char **argv)
 			return (ft_print_error());
 	}
 	if (argc == 2)
-		free(input);
+		ft_free(input);
 	return (1);
 }

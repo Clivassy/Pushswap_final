@@ -78,7 +78,7 @@ int	*ft_create_tab(int ac, char **av)
 		tab[i++] = ft_atoi(input[j++]);
 	tab[i] = '\0';
 	if (ac == 2)
-		free (input);
+		ft_free(input);
 	return (tab);
 }
 

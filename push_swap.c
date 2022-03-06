@@ -2,17 +2,14 @@
 
 void	ft_free_stack(t_list *stack)
 {
-	t_list	*head;
-	t_list	*temp;
+   t_list* tmp;
 
-	head = stack;
-	while (head)
-	{
-		temp = head;
-		head = head->next;
-		free(temp);
-	}
-	free (stack);
+   while (stack != NULL)
+    {
+       tmp = stack;
+       stack = stack->next;
+       free(tmp);
+    }
 }
  
 // main

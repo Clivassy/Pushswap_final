@@ -23,7 +23,8 @@ int     	ft_len_malloc_tab(int ac, char **av);
 int	    	ft_count_words(char const *s, char c);
 
 /* Lists */
-void		ft_free_stack(t_list *stack);
+void	ft_free(char **str);
+void	ft_free_stack(t_list *stack);
 int    		ft_get_index(t_list *a, int ac, char **av);
 void    	print_list(t_list *head);
 void 		ft_create_list(int ac, char **argv, t_list **stack_a);
