@@ -27,7 +27,7 @@ int main(int argc, char **argv)
     if (argc < 2)
         return (0);
     if (ft_check_errors(argc, argv))
-    {
+    {   
         ft_create_list(argc, argv, &a);
         if (ft_is_sorted(&a))
             return (0);
@@ -38,7 +38,6 @@ int main(int argc, char **argv)
             ft_get_index(a, argc, argv);
             radix_sort(&a, &b);
         }
-        free(a);
     }
     return (0);
 }
