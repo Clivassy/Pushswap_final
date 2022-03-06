@@ -28,6 +28,7 @@ int main(int argc, char **argv)
         ft_create_list(argc, argv, &a);
         if (ft_is_sorted(&a))
         {
+            ft_free_stack(a);
             return (0);
         }
         if (ft_lstsize(a) <= 5)

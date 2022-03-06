@@ -35,9 +35,11 @@ int    ft_get_index(t_list *a, int ac, char **av)
 
 	tab = malloc(sizeof(int) * ft_len_malloc_tab(ac, av) + 1); 
     if (!tab)
-        return (0);
+        return(0);
     index = 0;
 	tab = ft_create_tab(ac, av);
+	if (!tab)
+		free(tab);
     ft_sort_tab(a, tab);
     while (a)
     {   
@@ -49,7 +51,7 @@ int    ft_get_index(t_list *a, int ac, char **av)
         }
         index++;
     }
-	free (tab);
+	free(tab);
 	return (0);
 }
 
