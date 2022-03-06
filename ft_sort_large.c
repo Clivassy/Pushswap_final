@@ -38,8 +38,6 @@ int    ft_get_index(t_list *a, int ac, char **av)
         return(0);
     index = 0;
 	tab = ft_create_tab(ac, av);
-	if (!tab)
-		free(tab);
     ft_sort_tab(a, tab);
     while (a)
     {   
