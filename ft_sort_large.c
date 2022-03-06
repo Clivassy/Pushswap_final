@@ -33,7 +33,7 @@ int    ft_get_index(t_list *a, int ac, char **av)
     int index;
 	int *tab;
 
-	tab = malloc(sizeof(int) * ft_len_malloc_tab(ac, av) + 1); 
+	tab = malloc(sizeof(int) * ft_len_malloc_tab(ac, av)); 
     if (!tab)
         return(0);
     index = 0;
