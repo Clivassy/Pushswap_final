@@ -77,5 +77,7 @@ int	ft_check_errors(int argc, char **argv)
 		else
 			return (ft_print_error());
 	}
+	if (argc == 2)
+		free(input);
 	return (1);
 }

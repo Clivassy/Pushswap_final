@@ -49,7 +49,7 @@ int    ft_get_index(t_list *a, int ac, char **av)
         }
         index++;
     }
-	free (tab);
+	free(tab);
 	return (0);
 }
 
@@ -101,6 +101,5 @@ void	radix_sort(t_list **a, t_list **b)
 		while (ft_lstsize(*b) != 0)
 			pa(a, b);
 		i++;
-		//printList(*a);
 	}
 }

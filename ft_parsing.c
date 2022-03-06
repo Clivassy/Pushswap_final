@@ -77,6 +77,8 @@ int	*ft_create_tab(int ac, char **av)
 	while (input[j])
 		tab[i++] = ft_atoi(input[j++]);
 	tab[i] = '\0';
+	if (ac == 2)
+		free (input);
 	return (tab);
 }
 
@@ -99,6 +101,5 @@ void	ft_create_list(int ac, char **argv, t_list **stack_a)
 		ft_lstadd_back(stack_a, temp);
 		i++;
 	}
-	free(tab);
-	//printList(*stack_a);
+	free (tab);
 }
