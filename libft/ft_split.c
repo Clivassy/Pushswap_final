@@ -1,68 +1,16 @@
-#include "push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jbatoro <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/01 20:16:53 by jbatoro           #+#    #+#             */
+/*   Updated: 2021/12/09 13:58:38 by jbatoro          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-// LIBFT USE
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
-
-t_list	*ft_lstnew(int content)
-{
-	t_list	*element;
-
-	element = malloc(sizeof(*element));
-	if (!element)
-		return (NULL);
-	element->content = content;
-	element->next = NULL;
-	return (element);
-}
-
-void	ft_lstadd_back(t_list **alst, t_list *new)
-{
-	t_list	*temp;
-
-	if (alst)
-	{
-		if (!*alst)
-			*alst = new;
-		else
-		{
-			temp = (*alst);
-			while (temp->next != NULL)
-				temp = temp->next;
-			temp->next = new;
-		}
-	}
-}
-
-int	ft_lstsize(t_list *lst)
-{
-	int		nb_element;
-
-	nb_element = 0;
-	if (lst)
-	{
-		while (lst)
-		{
-			lst = lst->next;
-			nb_element++;
-		}
-	}
-	return (nb_element);
-}
-
-t_list	*ft_lstlast(t_list *lst)
-{
-	if (lst)
-	{
-		while (lst->next)
-			lst = lst->next;
-	}
-	return (lst);
-}
+#include "libft.h"
 
 static char	**ft_free(char **tab)
 {
@@ -78,7 +26,7 @@ static char	**ft_free(char **tab)
 	return (NULL);
 }
 
-int	ft_count_words(char const *s, char c)
+static int	ft_count_words(char const *s, char c)
 {
 	size_t		i;
 	int			count;
@@ -129,11 +77,11 @@ static char	**ft_malloc_array(char const *s, char **array, char c)
 	i = 0;
 	j = 0;
 	index = -1;
-	while (i <= strlen(s))
+	while (i <= ft_strlen(s))
 	{
 		if ((s[i] != c) && index < 0)
 			index = i;
-		else if ((s[i] == c || i == strlen(s)) && index >= 0)
+		else if ((s[i] == c || i == ft_strlen(s)) && index >= 0)
 		{
 			array[j] = ft_malloc_word(s, index, i);
 			if (!array[j])
@@ -147,7 +95,7 @@ static char	**ft_malloc_array(char const *s, char **array, char c)
 	return (array);
 }
 
-char	**ft_split(char *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**array;
 
@@ -160,13 +108,3 @@ char	**ft_split(char *s, char c)
 	return (array);
 }
 
-void    printList(t_list *head)
-{ 
-	t_list *current = head;
-    
-	while (current != NULL)
-    {
-        printf("%d\n", current->content);
-        current = current->next;
-    }
-}

@@ -12,18 +12,7 @@ void	ft_free_stack(t_list *stack)
 		head = head->next;
 		free(temp);
 	}
-	free(stack);
-}
-
-void	ft_free_tab(char **str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	while (i >= 0)
-		free(str[i--]);
+	free (stack);
 }
  
 // main
@@ -41,18 +30,14 @@ int main(int argc, char **argv)
     {
         ft_create_list(argc, argv, &a);
         if (ft_is_sorted(&a))
-        {
             return (0);
-            ft_free_stack (a);
-            ft_free_stack (a);
-        }
         if (ft_lstsize(a) <= 5)
             ft_sort_small_stack(&a, &b, argc, argv);
-        else if (ft_lstsize(a) > 5)
+        if (ft_lstsize(a) > 5)
         {   
             ft_get_index(a, argc, argv);
             radix_sort(&a, &b);
-        }    
+        }
     }
     return (0);
 }

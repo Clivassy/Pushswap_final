@@ -1,4 +1,4 @@
-SRCS	= main.c push_swap.c main.c ft_check_errors.c
+SRCS	= ft_cases.c ft_check_errors.c ft_parsing.c ft_push.c ft_reverse_rotate.c ft_rotate.c ft_sort_large.c ft_sort_small_utils.c ft_sort_small.c ft_swap.c push_swap.c ft_lists.c
 
 OBJS	= ${SRCS:.c=.o}
 
@@ -19,7 +19,7 @@ all : ${NAME}
 $(NAME) : ${OBJS} push_swap.h
 	@${MAKE} -C ./libft
 	@echo "\033[0;33mLinking..."
-	@ar rcs ${NAME} ${OBJS} ./libft/libft.a -o ${NAME}
+	@ar rcs ${NAME} ${OBJS} ./libft/libft.a ${NAME}
 	@echo "\033[0;32mOK!"
 
 clean :

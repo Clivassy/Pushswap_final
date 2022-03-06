@@ -1,68 +1,103 @@
 #include "push_swap.h"
 
-int		ft_tab_len(int ac, char *av)
+int	ft_tab_len(int ac)
 {
-	int len;
+	int	len;
 
-	len = 0; 
+	len = 0;
 	while (len < ac - 1)
 		len++;
 	return (len);
 }
 
-// Atoi to convert argv into numbers
-int	ft_atoi(const char *nptr)
+/* Atol to handle int overflow */
+long	ft_atol(char *str)
 {
-	long	nb;
-	int		i;
-	int		signe;
+	long	i;
+	long	nbr;
+	int		isneg;
 
-	nb = 0;
 	i = 0;
-	signe = 1;
-	while ((nptr[i] >= 9 && nptr[i] <= 13)
-		|| (nptr[i] == 32))
+	nbr = 0;
+	isneg = 0;
+	while (str[i] != '\0' && (str[i] == 32 || str[i] == '\t' || str[i] == '\n'
+			|| str[i] == '\r' || str[i] == '\v' || str[i] == '\f'))
 		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
+	if (str[i] != '\0' && str[i] == '-')
 	{
-		if (nptr[i] == '-')
-			signe = -signe;
+		isneg = 1;
 		i++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		nb = nb * 10 + (nptr[i] - 48);
+	else if (str[i] == '+')
 		i++;
-	}
-	return (nb * signe);
+	while (str[i] != '\0' && ft_isdigit(str[i]))
+		nbr = (nbr * 10) + (str[i++] - '0');
+	if (isneg == 1)
+		return (-nbr);
+	return (nbr);
 }
 
-t_list *ft_create_list(int ac, char **argv, t_list **stack_a)
+/* Return correct len to malloc properly the tab stocking numbers
+   taille ac + taille de chaque av// ou strlen de av + 1 */
+int	ft_len_malloc_tab(int ac, char **av)
 {
-    int i;
-    int *tab;
-	int len; 
-    t_list *temp;
+	int	i;
+	int	count;
 
-    if (ac == 2)
+	count = ac - 1;
+	i = 1;
+	while (i < ac)
 	{
+		count += strlen(av[i]);
+		i++;
+	}
+	return (count);
+}
+
+/* Create tab with arg numbers */
+int	*ft_create_tab(int ac, char **av)
+{
+	int		j;
+	int		i;
+	int		*tab;
+	char	**input;
+
+	tab = malloc(sizeof(int) * ft_len_malloc_tab(ac, av) + 1);
+	if (!tab)
+		return (NULL);
+	j = 0;
+	if (ac == 2)
+		input = ft_split(av[1], ' ');
+	else
+	{
+		input = av;
+		j = 1;
+	}
+	i = 0;
+	while (input[j])
+		tab[i++] = ft_atoi(input[j++]);
+	tab[i] = '\0';
+	return (tab);
+}
+
+void	ft_create_list(int ac, char **argv, t_list **stack_a)
+{
+	int		i;
+	int		*tab;
+	int		len;
+	t_list	*temp;
+
+	if (ac == 2)
 		len = ft_count_words(argv[1], ' ');
-		tab = ft_create_tab_from_str(ac, argv);
-		//printf("%d\n", len);
-	}   
-    else
+	else
+		len = ft_tab_len(ac);
+	tab = ft_create_tab(ac, argv);
+	i = 0;
+	while (i < len)
 	{
-		len = ft_tab_len(ac, argv[1]);
-    	tab = ft_create_tab_from_av(ac, argv);
-	} 
-    i = 0; 
-    while (i < len)
-    {   
-		//printf("%d\n", tab[i]);
 		temp = ft_lstnew(tab[i]);
 		ft_lstadd_back(stack_a, temp);
-        i++;
-    }
-	free(temp);
-    return (*stack_a);
+		i++;
+	}
+	//printList(*stack_a);
 }

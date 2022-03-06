@@ -28,14 +28,17 @@ int    *ft_sort_tab(t_list *a, int *tab)
 } 
 
 // Sort numbers of the stack stored in array 
-void    ft_get_index(t_list *a, int ac, char **av)
+int    ft_get_index(t_list *a, int ac, char **av)
 {
     int index;
-
 	int *tab;
+
+	tab = malloc(sizeof(int) * ft_len_malloc_tab(ac, av) + 1); 
+    if (!tab)
+        return (0);
     index = 0;
-	printf("%d %d %d %d %d %d\n", tab[0],tab[1], tab[2],tab[3],tab[4], tab[5]);
-    tab = ft_sort_tab(a, tab);
+	tab = ft_create_tab(ac, av);
+    ft_sort_tab(a, tab);
     while (a)
     {   
         if (tab[index] == a->content)
@@ -46,6 +49,8 @@ void    ft_get_index(t_list *a, int ac, char **av)
         }
         index++;
     }
+	free (tab);
+	return (0);
 }
 
 int	get_max_bits(t_list **stack)
@@ -96,6 +101,6 @@ void	radix_sort(t_list **a, t_list **b)
 		while (ft_lstsize(*b) != 0)
 			pa(a, b);
 		i++;
-		printList(*a);
+		//printList(*a);
 	}
 }
