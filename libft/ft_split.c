@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-/* static char	**ft_free(char **tab)
+static char	**ft_free(char **tab)
 {
 	unsigned int	i;
 
@@ -25,7 +25,7 @@
 	free(tab);
 	return (NULL);
 }
- */
+
 static int	ft_count_words(char const *s, char c)
 {
 	size_t		i;
@@ -85,8 +85,7 @@ static char	**ft_malloc_array(char const *s, char **array, char c)
 		{
 			array[j] = ft_malloc_word(s, index, i);
 			if (!array[j])
-				return(NULL);
-				//return (ft_free(array));
+				return (ft_free(array));
 			index = -1;
 			j++;
 		}
