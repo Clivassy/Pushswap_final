@@ -4,7 +4,7 @@ OBJS	= ${SRCS:.c=.o}
 
 CC	= gcc
 
-NAME	= pushswap.a
+NAME	= pushswap
 
 CFLAGS	= -Wall -Werror -Wextra 
 
