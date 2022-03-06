@@ -1,7 +1,14 @@
 #include "push_swap.h"
 
-void    ft_sort_two_nb(t_list **stack, int *tab)
+void    ft_sort_two_nb(t_list **stack)
 {
+    int tab[2];
+    t_list *head;
+
+    head = *stack;
+    tab[0] = head->content;
+    head = head->next;
+    tab[1] = head->content;
     if (tab[0] > tab[1])
         sa(stack);
 }
@@ -79,7 +86,7 @@ void    ft_sort_small_stack(t_list **a,t_list **b, int ac, char **av)
     if (ft_lstsize(*a) <= 1 || ft_is_sorted(a))
         return;
     else if (ft_lstsize(*a) == 2)
-        ft_sort_two_nb(a, tab);
+        ft_sort_two_nb(a);
     else if (ft_lstsize(*a) == 3)
         ft_sort_three(a);
     else if (ft_lstsize(*a) == 4)

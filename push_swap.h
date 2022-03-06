@@ -67,7 +67,7 @@ int     	ft_get_max_bits(t_list *stack);
 int     	ft_min_position(t_list **stack, int *tab);
 int			ft_is_sorted(t_list **stack);
 void    	ft_sort_small_stack(t_list **a,t_list **b, int ac, char **av);
-void    	ft_sort_two_nb(t_list **stack, int *tab);
+void    ft_sort_two_nb(t_list **stack);
 void    	ft_sort_three(t_list **a);
 void    	ft_sort_four(t_list **a, t_list **b, int pos);
 void       	ft_sort_five(t_list **a, t_list **b, int pos);
