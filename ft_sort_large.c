@@ -31,14 +31,11 @@ int    *ft_sort_tab(t_list *a, int *tab)
 void    ft_get_index(t_list *a, int ac, char **av)
 {
     int index;
-	//int *tab;
+	int *tab;
 
-	//tab = malloc(sizeof(int)); 
-   // if (!tab)
-  //      return;
-    index = 0;
-	int *tab = ft_create_tab(ac, av);
+	tab = ft_create_tab(ac, av);
     ft_sort_tab(a, tab);
+	index = 0;
     while (a)
     {   
         if (tab[index] == a->content)

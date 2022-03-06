@@ -28,7 +28,6 @@ void    ft_sort_three(t_list **a)
         i++;
     }
     ft_find_case(a, tab);
-    //printList(*a);
 }
 
 void    ft_sort_four(t_list **a, t_list **b, int pos)
@@ -49,7 +48,6 @@ void    ft_sort_four(t_list **a, t_list **b, int pos)
     pb(a, b);
     ft_sort_three(a);
     pa(a,b);
-    //printList(*a);
 }
 
 void       ft_sort_five(t_list **a, t_list **b, int pos)
