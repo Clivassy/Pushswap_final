@@ -64,6 +64,22 @@ void	ft_free(char **str)
 	free(str);
 }
 
+void	ft_no_leaks(int ac, char **input)
+{
+		if (ac == 2)
+			ft_free(input);
+}
+
+int	ft_check_all_errors(int tmp, char **input, int pars_args)
+{
+	if (ft_check_double(tmp, input, pars_args)
+			&& ft_check_int_overflow(input[pars_args])
+			&& ft_check_argv_input(input[pars_args]))
+			return (1);
+	else
+		return (0);
+}
+
 /* Combine all checking errors */
 int	ft_check_errors(int argc, char **argv)
 {
@@ -82,18 +98,14 @@ int	ft_check_errors(int argc, char **argv)
 	while (input[pars_args])
 	{
 		tmp = ft_atoi(input[pars_args]);
-		if (ft_check_double(tmp, input, pars_args)
-			&& ft_check_int_overflow(input[pars_args])
-			&& ft_check_argv_input(input[pars_args]))
+		if (ft_check_all_errors(tmp, input, pars_args))
 			pars_args++;
 		else
 		{
-			if (argc == 2)
-				ft_free(input);
+			ft_no_leaks(argc, input);
 			return (ft_print_error());
 		}		
 	}
-	if (argc == 2)
-		ft_free(input);
+	ft_no_leaks(argc, input);
 	return (1);
 }
