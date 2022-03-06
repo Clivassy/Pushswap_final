@@ -86,11 +86,7 @@ int	ft_check_errors(int argc, char **argv)
 			&& ft_check_argv_input(input[pars_args]))
 			pars_args++;
 		else
-		{
-			if (argc == 2)
-				ft_free(input);
 			return (ft_print_error());
-		}
 	}
 	if (argc == 2)
 		ft_free(input);
