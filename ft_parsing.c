@@ -93,10 +93,10 @@ void	ft_create_list(int ac, char **argv, t_list **stack_a)
 		len = ft_count_words(argv[1], ' ');
 	else
 		len = ft_tab_len(ac);
-	tab = ft_create_tab(ac, argv);
-	i = 0;
 	if (len == 1)
 		return ;
+	tab = ft_create_tab(ac, argv);
+	i = 0;
 	while (i < len)
 	{
 		temp = ft_lstnew(tab[i]);

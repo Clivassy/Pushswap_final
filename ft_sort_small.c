@@ -86,6 +86,5 @@ void    ft_sort_small_stack(t_list **a,t_list **b, int ac, char **av)
         ft_sort_four(a, b, pos);
     else 
         ft_sort_five(a, b, pos); 
-    free (tab);
-    free(a);
+    //free (tab);
 } 

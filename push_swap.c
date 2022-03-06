@@ -30,7 +30,9 @@ int main(int argc, char **argv)
     {   
         ft_create_list(argc, argv, &a);
         if (ft_is_sorted(&a))
+        {
             return (0);
+        }
         if (ft_lstsize(a) <= 5)
             ft_sort_small_stack(&a, &b, argc, argv);
         if (ft_lstsize(a) > 5)
