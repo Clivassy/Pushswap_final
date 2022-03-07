@@ -22,7 +22,7 @@ int main(int argc, char **argv)
     b = NULL;
 
     if (argc < 2)
-        return (0);
+        return (1);
     if (ft_check_errors(argc, argv))
     {   
         ft_create_list(argc, argv, &a);

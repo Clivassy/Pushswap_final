@@ -3,7 +3,8 @@
 /* Print error message */
 int	ft_print_error(void)
 {
-	ft_putendl_fd("Error", 1);
+	//ft_putendl_fd("Error", 1);
+	write(2, "Error\n", 6);
 	return (0);
 }
 
@@ -16,10 +17,9 @@ int	ft_check_argv_input(char *nptr)
 	i = 0;
 	signe = 1;
 	if (nptr[i] == '+' || nptr[i] == '-')
-	{
-		if (nptr[i] == '-')
-			signe = -signe;
-		i++;
+	{	
+		if (ft_isdigit(nptr[i - 1]) || ft_isdigit(nptr[i + 1]))
+			i++;
 	}
 	while (ft_isdigit(nptr[i]))
 		i++;
