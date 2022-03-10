@@ -3,7 +3,6 @@
 /* Print error message */
 int	ft_print_error(void)
 {
-	//ft_putendl_fd("Error", 1);
 	write(2, "Error\n", 6);
 	return (0);
 }
@@ -25,7 +24,7 @@ int	ft_check_argv_input(char *nptr)
 		i++;
 	if (nptr[i] != '\0')
 		return (0);
-return (1);
+	return (1);
 }
 
 /* Check int overflow */
@@ -52,34 +51,6 @@ int	ft_check_double(int num, char **input, int i)
 	return (1);
 }
 
-void	ft_free(char **str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	while (i >= 0)
-		free(str[i--]);
-	free(str);
-}
-
-void	ft_no_leaks(int ac, char **input)
-{
-		if (ac == 2)
-			ft_free(input);
-}
-
-int	ft_check_all_errors(int tmp, char **input, int pars_args)
-{
-	if (ft_check_double(tmp, input, pars_args)
-			&& ft_check_int_overflow(input[pars_args])
-			&& ft_check_argv_input(input[pars_args]))
-			return (1);
-	else
-		return (0);
-}
-
 /* Combine all checking errors */
 int	ft_check_errors(int argc, char **argv)
 {
@@ -98,7 +69,7 @@ int	ft_check_errors(int argc, char **argv)
 	while (input[pars_args])
 	{
 		tmp = ft_atoi(input[pars_args]);
-		if (ft_check_all_errors(tmp, input, pars_args))
+		if (ft_check_all(tmp, input, pars_args))
 			pars_args++;
 		else
 		{

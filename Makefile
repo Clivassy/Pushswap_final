@@ -2,7 +2,7 @@
 
 NAME = push_swap
 
-SRCS = ft_cases.c ft_check_errors.c ft_parsing.c ft_push.c ft_reverse_rotate.c ft_rotate.c ft_sort_large.c ft_sort_small_utils.c ft_sort_small.c ft_swap.c push_swap.c ft_lists.c
+SRCS = ft_cases.c ft_check_errors.c ft_parsing.c ft_push.c ft_reverse_rotate.c ft_rotate.c ft_sort_large.c ft_sort_small_utils.c ft_sort_small.c ft_swap.c push_swap.c ft_lists.c ft_utils.c
 
 OBJS = ${SRCS:.c=.o}
 

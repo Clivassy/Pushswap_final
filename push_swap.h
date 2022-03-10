@@ -21,6 +21,8 @@ int			ft_tab_len(int ac);
 long   		ft_atol(char *str);
 int     	ft_len_malloc_tab(int ac, char **av);
 int	    	ft_count_words(char const *s, char c);
+void		ft_no_leaks(int ac, char **input);
+int			ft_check_all(int tmp, char **input, int pars_args);
 
 /* Lists */
 void		ft_free(char **str);
@@ -42,7 +44,7 @@ int    		ft_check_argv_input(char *nptr);
 /* Instructions */
 int     	ft_swap_nodes(t_list **stack);
 int			ft_push(t_list **stack_to, t_list **stack_from);
-int			ft_reverseRotate(t_list **stack);
+int			ft_reverse_rotate(t_list **stack);
 int			ft_rotate(t_list **stack);
 int     	sa(t_list **stack_a);
 int     	sb(t_list **b);
@@ -56,23 +58,22 @@ int			rrr(t_list **a, t_list **b);
 
 /* Sorting algos */
 
+int			ft_is_sorted(t_list **stack);
+int 		ft_get_min(t_list **a);
+int  		ft_get_pos(t_list **a);
+void    	ft_sort_small(t_list **a,t_list **b, int ac, char **av);
+void    	ft_sort_two_nb(t_list **stack);
+void    	ft_sort_three(t_list **a);
+void    	ft_sort_four(t_list **a, t_list **b, int pos);
+void       	ft_sort_five(t_list **a, t_list **b, int pos);
+void   		ft_find_case(t_list **a, int *tab);
 int    		ft_case_1(int *tab);
 int    		ft_case_2(int *tab);
 int    		ft_case_3(int *tab);
 int    		ft_case_4(int *tab);
 int    		ft_case_5(int *tab);
-void   		ft_find_case(t_list **a, int *tab);
-int  		ft_get_pos(t_list **a);
 int     	ft_get_max_bits(t_list *stack);
-int     	ft_min_position(t_list **stack, int *tab);
-int			ft_is_sorted(t_list **stack);
-void    	ft_sort_small_stack(t_list **a,t_list **b, int ac, char **av);
-void    	ft_sort_two_nb(t_list **stack);
-void    	ft_sort_three(t_list **a);
-void    	ft_sort_four(t_list **a, t_list **b, int pos);
-void       	ft_sort_five(t_list **a, t_list **b, int pos);
 void		radix_sort(t_list **stack_a, t_list **stack_b);
-int 		ft_get_min(t_list **a);
 
 //LIBFT (temp)
 int			ft_lstsize(t_list *lst);

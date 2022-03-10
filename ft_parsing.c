@@ -103,5 +103,5 @@ void	ft_create_list(int ac, char **argv, t_list **stack_a)
 		ft_lstadd_back(stack_a, temp);
 		i++;
 	}
-	free (tab);
+	free(tab);
 }
