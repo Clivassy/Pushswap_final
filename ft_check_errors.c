@@ -11,10 +11,8 @@ int	ft_print_error(void)
 int	ft_check_argv_input(char *nptr)
 {
 	int		i;
-	int		signe;
 
 	i = 0;
-	signe = 1;
 	if (nptr[i] == '+' || nptr[i] == '-')
 	{	
 		if (ft_isdigit(nptr[i - 1]) || ft_isdigit(nptr[i + 1]))
