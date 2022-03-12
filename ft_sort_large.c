@@ -68,6 +68,12 @@ int	get_max_bits(t_list **stack)
 	while ((max >> max_bits) != 0)
 		max_bits++;
 	return (max_bits);
+}		
+
+void	ft_fill_a(t_list **a, t_list **b)
+{
+	while (ft_lstsize(*b) != 0)
+		pa(a, b);
 }
 
 /* Algo de tri RADIX */
@@ -76,15 +82,17 @@ void	radix_sort(t_list **a, t_list **b)
 	t_list	*head_a;
 	int		i;
 	int		j;
+	int		size;
 	int		max_bits;
 
 	i = 0;
 	head_a = *a;
+	size = ft_lstsize(head_a);
 	max_bits = get_max_bits(a);
 	while (i < max_bits)
 	{
 		j = 0;
-		while (j++ < ft_lstsize(head_a))
+		while (j++ < size)
 		{
 			head_a = *a;
 			if (((head_a->index >> i) & 1) == 1)
@@ -92,8 +100,7 @@ void	radix_sort(t_list **a, t_list **b)
 			else
 				pb(a, b);
 		}
-		while (ft_lstsize(*b) != 0)
-			pa(a, b);
+		ft_fill_a(a, b);
 		i++;
 	}
 	ft_free_stack(*a);

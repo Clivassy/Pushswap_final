@@ -1,12 +1,5 @@
 #include "push_swap.h"
 
-/* Print error message */
-int	ft_print_error(void)
-{
-	write(2, "Error\n", 6);
-	return (0);
-}
-
 /* Check there are only numbers (including one previous + or - only) */
 int	ft_check_argv_input(char *nptr)
 {
@@ -47,6 +40,16 @@ int	ft_check_double(int num, char **input, int i)
 		i++;
 	}
 	return (1);
+}
+
+int	ft_check_all(int tmp, char **input, int pars_args)
+{
+	if (ft_check_double(tmp, input, pars_args)
+		&& ft_check_int_overflow(input[pars_args])
+		&& ft_check_argv_input(input[pars_args]))
+		return (1);
+	else
+		return (0);
 }
 
 /* Combine all checking errors */

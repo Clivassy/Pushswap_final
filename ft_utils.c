@@ -1,19 +1,43 @@
 #include "push_swap.h"
 
+/* Print error message */
+int	ft_print_error(void)
+{
+	write(2, "Error\n", 6);
+	return (0);
+}
+
+/* Atol to handle int overflow */
+long	ft_atol(char *str)
+{
+	long	i;
+	long	nbr;
+	int		isneg;
+
+	i = 0;
+	nbr = 0;
+	isneg = 0;
+	while (str[i] != '\0' && (str[i] == 32 || str[i] == '\t' || str[i] == '\n'
+			|| str[i] == '\r' || str[i] == '\v' || str[i] == '\f'))
+		i++;
+	if (str[i] != '\0' && str[i] == '-')
+	{
+		isneg = 1;
+		i++;
+	}
+	else if (str[i] == '+')
+		i++;
+	while (str[i] != '\0' && ft_isdigit(str[i]))
+		nbr = (nbr * 10) + (str[i++] - '0');
+	if (isneg == 1)
+		return (-nbr);
+	return (nbr);
+}
+
 void	ft_no_leaks(int ac, char **input)
 {
 	if (ac == 2)
 		ft_free(input);
-}
-
-int	ft_check_all(int tmp, char **input, int pars_args)
-{
-	if (ft_check_double(tmp, input, pars_args)
-		&& ft_check_int_overflow(input[pars_args])
-		&& ft_check_argv_input(input[pars_args]))
-		return (1);
-	else
-		return (0);
 }
 
 void	ft_free(char **str)
