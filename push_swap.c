@@ -8,7 +8,7 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	if (argc < 2)
-		return (1);
+		return (0);
 	if (ft_check_errors(argc, argv))
 	{
 		ft_create_list(argc, argv, &a);
