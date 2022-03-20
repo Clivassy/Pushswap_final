@@ -6,7 +6,7 @@
 /*   By: jbatoro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 20:16:53 by jbatoro           #+#    #+#             */
-/*   Updated: 2021/12/09 13:58:38 by jbatoro          ###   ########.fr       */
+/*   Updated: 2022/03/20 16:01:38 by jbatoro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,4 +107,3 @@ char	**ft_split(char const *s, char c)
 	ft_malloc_array(s, array, c);
 	return (array);
 }
-
