@@ -16,23 +16,17 @@ CFLAGS	= -Wall -Werror -Wextra
 RM	= rm -f
 
 %.o : 	%.c
-	@echo "\033[0;31mCompiling..."
-	@${CC} -o $@ -c $< ${CFLAGS}
+	${CC} -o $@ -c $< ${CFLAGS}
 	
 all : ${NAME}
 
 $(NAME) : ${OBJS} libft.h
-	@echo "\033[0;33mLinking..."
 	@ar rcs ${NAME} ${OBJS}
-	@echo "\033[0;32mOK!"
 
 bonus : ${OBJS} ${OBJS_B} libft.h
 		@ar rcs ${NAME} ${OBJS} ${OBJS_B}
 
 clean :
-	@echo "\033[0;33mCleaning..."
-	@echo "\033[0;33mCleaning..."
-	@echo "\033[0;33mCleaning..."
 	@${RM} ${OBJS} ${OBJS_B}
 	@echo "\033[0;32mOK CLEAN!"
 

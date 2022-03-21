@@ -30,12 +30,13 @@ int	main(int argc, char **argv)
 			return (0);
 		}
 		if (ft_lstsize(a) <= 5)
-			ft_sort_small(&a, &b, argc, argv);
+			ft_sort_small(&a, &b);
 		if (ft_lstsize(a) > 5)
 		{
 			ft_get_index(a, argc, argv);
 			radix_sort(&a, &b);
 		}
+		ft_free_stack(a);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jbatoro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 15:53:11 by jbatoro           #+#    #+#             */
-/*   Updated: 2022/03/20 15:53:14 by jbatoro          ###   ########.fr       */
+/*   Updated: 2022/03/20 16:18:45 by jbatoro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,16 +66,4 @@ t_list	*ft_lstlast(t_list *lst)
 			lst = lst->next;
 	}
 	return (lst);
-}
-
-void	print_list(t_list *head)
-{
-	t_list	*current;
-
-	current = head;
-	while (current != NULL)
-	{
-		printf("%d\n", current->content);
-		current = current->next;
-	}
 }

@@ -60,7 +60,7 @@ int		rrr(t_list **a, t_list **b);
 
 /* Sorting algos */
 int		ft_is_sorted(t_list **stack);
-void	ft_sort_small(t_list **a, t_list **b, int ac, char **av);
+void	ft_sort_small(t_list **a, t_list **b);
 void	radix_sort(t_list **stack_a, t_list **stack_b);
 void	ft_find_case(t_list **a, int *tab);
 int		ft_get_min(t_list **a);

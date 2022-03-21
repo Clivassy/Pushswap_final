@@ -115,5 +115,4 @@ void	radix_sort(t_list **a, t_list **b)
 		ft_fill_a(a, b);
 		i++;
 	}
-	ft_free_stack(*a);
 }

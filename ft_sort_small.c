@@ -85,13 +85,10 @@ void	ft_sort_five(t_list **a, t_list **b, int pos)
 	pa(a, b);
 }
 
-void	ft_sort_small(t_list **a, t_list **b, int ac, char **av)
+void	ft_sort_small(t_list **a, t_list **b)
 {
-	int	*tab;
 	int	pos;
 
-	if (ac > 2)
-		tab = ft_create_tab(ac, av);
 	pos = ft_get_pos(a);
 	if (ft_lstsize(*a) <= 1 || ft_is_sorted(a))
 		return ;
@@ -103,7 +100,4 @@ void	ft_sort_small(t_list **a, t_list **b, int ac, char **av)
 		ft_sort_four(a, b, pos);
 	else
 		ft_sort_five(a, b, pos);
-	ft_free_stack(*a);
-	if (ac > 2)
-		free(tab);
 }
