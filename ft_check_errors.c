@@ -15,17 +15,17 @@
 /* Check there are only numbers (including one previous + or - only) */
 int	ft_check_argv_input(char *nptr)
 {
-	int	i;
-
+	int		i;
 	i = 0;
-	if (nptr[0] == '-')
-		i++;
-	while (nptr[i])
+	if (nptr[i] == '+' || nptr[i] == '-')
 	{
-		if (!ft_isdigit(nptr[i]))
-			return (0);
-		i++;
+		if (ft_isdigit(nptr[i + 1]))
+			i++;
 	}
+	while (ft_isdigit(nptr[i]))
+		i++;
+	if (nptr[i] != '\0')
+		return (0);
 	return (1);
 }
 
