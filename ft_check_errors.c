@@ -16,6 +16,7 @@
 int	ft_check_argv_input(char *nptr)
 {
 	int		i;
+
 	i = 0;
 	if (nptr[i] == '+' || nptr[i] == '-')
 	{
